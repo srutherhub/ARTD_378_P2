@@ -1,18 +1,15 @@
 float height3;
 float height23;
-float spectrumScale = 10.0;
+float spectrumScale = 15.0;
 
 void spectrum(){
+  float wave = (sin(shape_count)*20.0);
   push();
   color color2 = color(242-int(colorNoise),160+int(colorNoise),255);
-  rectMode(CORNERS);
-  
-  // perform a forward FFT on the samples in jingle's mix buffer
-  // note that if jingle were a MONO file, this would be the same as using jingle.left or jingle.right
   fftLin.forward( mySong.mix );
    noStroke(); 
    if(mySong.position() > 77712){
-    color2 = color(143+int(colorNoise),255,134+int(colorNoise));
+       color2 = color(255+int(colorNoise),239,57+int(colorNoise));
   }
    fill(color2);
 
@@ -23,13 +20,20 @@ void spectrum(){
       //rect(i*w, height23, i*w + w, height23 - fftLin.getAvg(i)*spectrumScale);
       push();
       rotateY(radians(90));
-      rect(i*w, height23, i*w + w, height23 - fftLin.getAvg(i)*spectrumScale);
+      //rect(i*w, height23, i*w + w, height23 - fftLin.getAvg(i)*spectrumScale);
+      translate(i*w,height23+(wave));
+      box(10 ,20 - fftLin.getAvg(i)*spectrumScale,10);
       pop();
+      //
       push();
       translate(width,0,0);
       rotateY(radians(90));
-      rect(i*w, height23, i*w + w, height23 - fftLin.getAvg(i)*spectrumScale);
+      wave = (cos(shape_count/2.0)*5.0);
+      //rect(i*w, height23, i*w + w, height23 - fftLin.getAvg(i)*spectrumScale);
+      translate(i*w,height23+wave);
+      box(5 ,20 - fftLin.getAvg(i)*spectrumScale,5);
       pop();
+      //
     }
   }
   pop();

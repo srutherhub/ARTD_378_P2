@@ -25,7 +25,7 @@ void setup() {
   height3 = height/3;
   height23 = 2*height/2;
   fftLin = new FFT( mySong.bufferSize(), mySong.sampleRate() );
-  fftLin.linAverages( 30 );
+  fftLin.linAverages( 256 );
   //
 }
 
@@ -36,10 +36,10 @@ void draw() {
     color1 = color(185+int(colorNoise),253-int(colorNoise),255);
   }
   background(color1);
+  spectrum();
   push();
   translate(-25,0,-300);
   bgGradients();
-
   //
   
   push();
@@ -48,5 +48,6 @@ void draw() {
   pop();
   //println(mySong.position());
   pop();
-  spectrum();
+    
+  
 }
