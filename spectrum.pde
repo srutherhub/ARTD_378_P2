@@ -22,7 +22,7 @@ void spectrum(){
       rotateY(radians(90));
       //rect(i*w, height23, i*w + w, height23 - fftLin.getAvg(i)*spectrumScale);
       translate(i*w,height23+(wave));
-      box(10 ,20 - fftLin.getAvg(i)*spectrumScale,10);
+      box(10 ,10 - fftLin.getAvg(i)*spectrumScale,10);
       pop();
       //
       push();
@@ -31,7 +31,7 @@ void spectrum(){
       wave = (cos(shape_count/2.0)*5.0);
       //rect(i*w, height23, i*w + w, height23 - fftLin.getAvg(i)*spectrumScale);
       translate(i*w,height23+wave);
-      box(5 ,20 - fftLin.getAvg(i)*spectrumScale,5);
+      box(10 ,10 - fftLin.getAvg(i)*spectrumScale,10);
       pop();
       //
     }

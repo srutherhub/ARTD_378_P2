@@ -7,9 +7,11 @@ AudioPlayer mySong; //Childish Gambino Summertime Magic
 FFT fftLin;
 
 
+
 void setup() {
   //
   size(1280, 720, P3D);
+  pixelDensity(2);
   minim = new Minim(this);
   beat = new BeatDetect();
   //
@@ -30,6 +32,7 @@ void setup() {
 }
 
 void draw() {
+  bgSpecs();
   //
   color color1 = color(255-int(colorNoise),218+int(colorNoise),144);
   if(mySong.position() > 77712){
